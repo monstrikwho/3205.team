@@ -22,4 +22,4 @@ router.get("/", async (req: Request, res: Response) => {
   }, 5000);
 });
 
-module.exports = router;
+export default router;
