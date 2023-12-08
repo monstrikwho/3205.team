@@ -16,7 +16,7 @@ export async function fetchContact({ email, number }: FetchContactProps) {
     searchParams.append("number", number.replace(/-/g, ""));
 
     const response = await fetch(
-      `http://localhost:5000/contacts?${searchParams.toString()}`,
+      `${process.env.REACT_APP_API_URL}/contacts?${searchParams.toString()}`,
       {
         method: "GET",
         signal: getControllerSignal(),
