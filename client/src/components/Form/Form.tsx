@@ -20,14 +20,14 @@ export default function Form() {
     const form = event.currentTarget;
     const { email, number } = form;
 
-    await fetchContact({
+    const res = await fetchContact({
       email: email.value,
       number: number.value,
-    })
-      .then((res) => {
-        updateContactList(res);
-      })
-      .catch((error) => console.log(error));
+    });
+
+    if (res) {
+      updateContactList(res.data);
+    }
   };
 
   return (
